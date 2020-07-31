@@ -36,7 +36,8 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URL_CATEGORIAS = 'http://localhost:8080/categorias';
+    const URL_CATEGORIAS = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias' : 'https://kelflix.herokuapp.com/categorias';
 
     fetch(URL_CATEGORIAS).then(async (respostaServidor) => {
       const resposta = await respostaServidor.json();
